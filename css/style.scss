@@ -73,8 +73,10 @@ header {
                     color: $primary-3;
                     font-size: $font-size-regular;
                     &:hover, &.active{
-                        color: $primary-2;
-                    }
+                        color: $primary-2;    
+                        text-decoration: underline;
+                        text-underline-offset: 5px;
+                    } 
                 }
                 .show>.nav-link {
                     color: $primary-2;

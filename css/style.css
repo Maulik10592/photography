@@ -73,6 +73,8 @@ header .navbar .navbar-collapse .navbar-nav .nav-link {
 }
 header .navbar .navbar-collapse .navbar-nav .nav-link:hover, header .navbar .navbar-collapse .navbar-nav .nav-link.active {
   color: #00beff;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 header .navbar .navbar-collapse .navbar-nav .show > .nav-link {
   color: #00beff;
