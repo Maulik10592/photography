@@ -1,0 +1,472 @@
+@import './scss/fonts';
+@import './scss/palette';
+@import './scss/variables';
+
+// genral css start //
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: auto; 
+    width: auto;
+    box-sizing: border-box;
+    background: transparent;
+    color: $body-color;
+    font: $font-weight-regular $font-size-regular $font-family-regular;
+}
+section{
+    padding: 50px 0;
+    margin: 0;
+    position: relative;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: $font-size-h1;
+}
+h2{
+    font-size: $font-size-h2;
+}
+h3{
+    font-size: $font-size-h3;
+}
+h4{
+    font-size: $font-size-h4;
+}
+h5{
+    font-size: $font-size-h5;
+}
+h6{
+    font-size: $font-size-h6;
+}
+.bgGradient{
+    background-image: radial-gradient(at 40% 20%,rgb(255, 184, 122) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgb(31, 221, 255) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgb(255, 219, 222) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgb(255, 133, 173) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(255, 181, 138) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgb(107, 102, 255) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgb(255, 133, 167) 0px, transparent 50%);
+    background-repeat: no-repeat;
+}
+// genral css end //
+
+// header slider css start //
+header {
+    background: transparent;
+    .navbar{    
+        margin: 0;
+        padding: 0;
+        .navbar-brand {
+            img{
+                width: 80px;
+            }
+        }
+        .navbar-collapse{
+            justify-content: flex-end;
+            .navbar-nav {
+                .nav-link{
+                    color: $primary-3;
+                    font-size: $font-size-regular;
+                    &:hover, &.active{
+                        color: $primary-2;
+                    }
+                }
+                .show>.nav-link {
+                    color: $primary-2;
+                }
+            }
+        }
+        &.fixed-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 5;
+            background-color: $primary-5;
+            box-shadow: 0 0 5px $primary-8;
+        }
+    }
+}
+// header slider css end //
+
+// home slider css start //
+.carousel{
+    .carousel-inner{
+        .carousel-item {
+            position: relative;
+            max-height: 550px;
+            .background-overlay {
+                position: absolute;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $primary-6;
+            }
+            img {
+                z-index: 2;
+            }
+            .carousel-caption {
+                top: 40%;
+                z-index: 3;
+                margin: 0;
+                padding: 0;
+                h2 {
+                    font-size: $font-size-h1 !important;
+                    margin-bottom:15px !important;
+                    text-align: left;
+                }
+                p {
+                    font-size: $font-size-medium !important;
+                    margin-bottom:15px !important;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .carousel-control-next, .carousel-control-prev{
+        z-index: 4;	
+        top: auto;
+        bottom: 3%;
+    }
+    .carousel-indicators{
+        margin-bottom: 0;
+        bottom: 3%;
+    }
+}
+// home slider css end //
+
+// about css start //
+.textContentBox{
+    position: relative;
+    .textBoxes{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+        h3{
+            margin-bottom: 15px;
+        }
+    }
+    .imagebox{
+        position: relative;
+        height: 100%;
+        width: 100%;        
+        &.first{
+            box-shadow: -30px 30px $primary-7;
+        }
+        &.second{           
+            box-shadow: 30px -30px $primary-7;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+// about css end //
+
+// work css start //
+.gallery-wrapper {
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+    .w-1{
+        grid-column: span 1;
+    }
+    .w-2{
+        grid-column: span 2;
+    }
+    .w-3{
+        grid-column: span 3;
+    }
+    .w-4{
+        grid-column: span 4;
+    }
+    .w-5{
+        grid-column: span 5;
+    }
+    .h-1{
+        grid-row: span 1;
+    }
+    .h-2{
+        grid-row: span 2;
+    }
+    .h-3{
+        grid-row: span 3;
+    }
+    .h-4{
+        grid-row: span 4;
+    }
+    .h-5{
+        grid-row: span 5;
+    }
+    .gallery-item {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        filter: drop-shadow(2px 2px 3px $primary-5);
+    }
+}
+.imagebox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+        cursor: pointer;
+        transition: all 400ms ease-in;
+        transform: scale(1);
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+// work css end //
+
+// gallery css start //
+#gallery {
+    position: relative;
+    .wrapper{
+        width:100%;
+        padding: 0;
+        margin: 0;
+        text-align:center;
+        .galleryCarousel{
+            width:100%;
+            margin:0px;
+            padding: 0; 
+            .slick-slide{
+                padding: 0;
+                margin:0;
+                height: 400px;
+                cursor: pointer;
+                img{
+                    width:100%;
+                    height: 100%;
+                    border: 2px solid $primary-3;
+                }
+            }
+        }
+    }
+}
+// gallery css end //
+
+// testimonials css start //
+#testimonials{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    #testimonialsSliderBox{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        .carousel-inner {
+            display: flex;
+            .carousel-item {
+                .carouselBox{
+                    position: relative;                
+                    width: 800px;
+                    height: 400px;
+                    margin: auto;
+                    .testimonialsContent {
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 550px;
+                        height: auto;
+                        color: $primary-1;
+                        background: $primary-8;
+                        box-shadow: 0 4px 30px $primary-6;
+                        backdrop-filter: blur(4.5px);
+                        -webkit-backdrop-filter: blur(4.5px);
+                        border-radius: 10px;
+                        padding: 40px;
+                        z-index: 2;
+                        user-select: none;
+                        p {
+                            font-size: $font-size-medium;
+                            font-weight: $font-weight-regular;
+                            line-height: $line-height-regular;
+                        }
+                        h2 {
+                            font-size: $font-size-h5;
+                            font-weight: $font-weight-semibold;
+                            margin-top: 30px;
+                            color: $primary-1;
+                        }
+                    }
+                    .testimonialsImage {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        height: 100%;
+                        img {
+                            height: 100%;
+                            border-radius: 10px;
+                            width: 320px;
+                            object-fit: cover;
+                            pointer-events: none;
+                            user-select: none;
+                        } 
+                    }
+                }
+            }
+        }
+        .carousel-control-next-icon, .carousel-control-prev-icon{
+            filter: invert(1);
+        }
+    }
+}
+// testimonials css end //
+
+// footer css start //
+
+.footer-copyright {
+    background-color: #121212;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+.footer-copyright-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.footer-copyright-text {
+  color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+// footer css end //
+
+// responsive css start //
+@media (max-width: xxl) { 
+    
+}
+@media (max-width: xl)  {
+    .carousel-caption {
+        top:25%;
+    }
+}
+@media (max-width: lg)  {
+    .carousel-caption {
+        top: 20%;
+        h2 {
+            font-size: $font-size-h3 !important;
+        }
+    }
+}
+@media (max-width: md)  {
+    .gallery-wrapper {
+        grid-template-columns: repeat(2, 2fr);
+        grid-template-rows: 1fr;
+        grid-gap: 2;
+        grid-auto-flow: dense;
+        .gallery-item{
+            &:nth-child(3n+2) {
+                grid-column: 1 / span 2;
+                grid-row-end: span 2;
+            }
+            &:nth-child(4n+3) {
+                grid-column: 2 / span 1;
+                grid-row-end: span 2;
+            }
+        }
+    }
+    .w-1,
+    .w-2,
+    .w-3,
+    .w-4,
+    .w-5 {
+        grid-column: span 1;
+    }
+    .h-1,
+    .h-2,
+    .h-3,
+    .h-4,
+    .h-5 {
+        grid-row: span 1;
+    }
+    main {
+        width: 500px;
+    }
+    .testimonialsSliderBox {
+        .slide-row {
+            width: 2000px;
+            .slide-col {
+                width: 500px;
+                height: 250px;
+                .hero{
+                    img {
+                        width: 200px;
+                    }
+                }
+                .content {
+                    width: 320px;
+                    height: 200px;
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: sm)  {
+    .gallery-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: wrap;
+        gap: 2.5rem;
+        margin: 5rem;
+    }
+    main {
+        width: 300px;
+    }
+    .testimonialsSliderBox {
+        .slide-row {
+            width: 1200px;
+            .slide-col {
+                width: 500px;
+                height: 300px;
+                .hero {
+                    top: 60%;
+                    height: 100px;
+                    z-index: 5;
+                    img {
+                        width: 100px;
+                    }
+                }
+                .content {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+// responsive css end //
