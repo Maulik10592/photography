@@ -7,12 +7,18 @@ jQuery(document).ready(function(){
         else {
             jQuery('.navbar').removeClass('fixed-header');
         }
-    });    
+    });  
+    jQuery(function(){
+        jQuery('.navbar a').click(function () {
+            jQuery('.navbar a').removeClass('active');
+            jQuery(this).addClass('active');
+         });
+     });  
     // header js end //
 
     // gallery js start //
     $('.galleryCarousel').slick({
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         arrows: false,
         dots: false,
@@ -22,6 +28,18 @@ jQuery(document).ready(function(){
         autoplay: true,
         responsive: [
             {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
                 breakpoint: 991,
                 settings: {
                     slidesToShow: 3,
@@ -29,6 +47,12 @@ jQuery(document).ready(function(){
             },
             {
                 breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 575,
                 settings: {
                     slidesToShow: 1,
                 }

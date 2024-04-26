@@ -25,24 +25,6 @@ h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
 }
-h1{
-    font-size: $font-size-h1;
-}
-h2{
-    font-size: $font-size-h2;
-}
-h3{
-    font-size: $font-size-h3;
-}
-h4{
-    font-size: $font-size-h4;
-}
-h5{
-    font-size: $font-size-h5;
-}
-h6{
-    font-size: $font-size-h6;
-}
 .bgGradient{
     background-image: radial-gradient(at 40% 20%,rgb(255, 184, 122) 0px, transparent 50%),
     radial-gradient(at 80% 0%, rgb(31, 221, 255) 0px, transparent 50%),
@@ -66,7 +48,60 @@ header {
                 width: 80px;
             }
         }
+        .navbar-toggler {
+            outline: 0;
+            background: transparent;
+            box-shadow: none;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            z-index: 5;
+            .navbar-toggler-icon{
+                background: $primary-3;
+                height: 2px;
+                width: 30px;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 30px;
+                    height: 2px;
+                    background: $primary-3;
+                    top: -8px;
+                    left: 0;
+                    transition-duration: 0.5s;
+                }
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 30px;
+                    height: 2px;
+                    background: $primary-3;
+                    top: 8px;
+                    left: 0;
+                    transition-duration: 0.5s;
+                }
+            }
+            &[aria-expanded="true"]{
+                .navbar-toggler-icon{
+                    height: 0;
+                    &::after{ 
+                        top: 0;
+                        transform: rotate(45deg);
+                    }
+                    &::before{    
+                        top: 0;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
         .navbar-collapse{
+            -webkit-transition: height 0s;
+            -moz-transition: height 0s;
+            -ms-transition: height 0s;
+            -o-transition: height 0s;
+            transition: height 0s;
             justify-content: flex-end;
             .navbar-nav {
                 .nav-link{
@@ -88,58 +123,67 @@ header {
             top: 0;
             right: 0;
             left: 0;
-            z-index: 5;
+            z-index: 9;
             background-color: $primary-5;
             box-shadow: 0 0 5px $primary-8;
+        }
+        .collapsing {
+            -webkit-transition: height 0s;
+            -moz-transition: height 0s;
+            -ms-transition: height 0s;
+            -o-transition: height 0s;
+            transition: height 0s;          
         }
     }
 }
 // header slider css end //
 
 // home slider css start //
-.carousel{
-    .carousel-inner{
-        .carousel-item {
-            position: relative;
-            max-height: 550px;
-            .background-overlay {
-                position: absolute;
-                z-index: 3;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: $primary-6;
-            }
-            img {
-                z-index: 2;
-            }
-            .carousel-caption {
-                top: 40%;
-                z-index: 3;
-                margin: 0;
-                padding: 0;
-                h2 {
-                    font-size: $font-size-h1 !important;
-                    margin-bottom:15px !important;
-                    text-align: left;
+#home{
+    .carousel{
+        .carousel-inner{
+            .carousel-item {
+                position: relative;
+                max-height: 500px;
+                .background-overlay {
+                    position: absolute;
+                    z-index: 3;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $primary-6;
                 }
-                p {
-                    font-size: $font-size-medium !important;
-                    margin-bottom:15px !important;
-                    text-align: left;
+                img {
+                    z-index: 2;
+                }
+                .carousel-caption {
+                    top: 40%;
+                    display: block !important;
+                    z-index: 3;
+                    margin: 0;
+                    padding: 0;
+                    h2 {
+                        margin-bottom:15px;
+                        text-align: left;
+                    }
+                    p {
+                        font-size: $font-size-medium;
+                        margin-bottom:15px;
+                        text-align: left;
+                    }
                 }
             }
         }
-    }
-    .carousel-control-next, .carousel-control-prev{
-        z-index: 4;	
-        top: auto;
-        bottom: 3%;
-    }
-    .carousel-indicators{
-        margin-bottom: 0;
-        bottom: 3%;
+        .carousel-control-next, .carousel-control-prev{
+            z-index: 4;	
+            top: auto;
+            bottom: 3%;
+        }
+        .carousel-indicators{
+            margin-bottom: 0;
+            bottom: 3%;
+        }
     }
 }
 // home slider css end //
@@ -162,7 +206,7 @@ header {
         height: 100%;
         width: 100%;        
         &.first{
-            box-shadow: -30px 30px $primary-7;
+            box-shadow: -30px -30px $primary-7;
         }
         &.second{           
             box-shadow: 30px -30px $primary-7;
@@ -277,7 +321,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: auto;
     width: 100%;
     #testimonialsSliderBox{
         position: relative;
@@ -312,8 +356,7 @@ header {
                             font-weight: $font-weight-regular;
                             line-height: $line-height-regular;
                         }
-                        h2 {
-                            font-size: $font-size-h5;
+                        h4 {
                             font-weight: $font-weight-semibold;
                             margin-top: 30px;
                             color: $primary-1;
@@ -336,8 +379,19 @@ header {
                 }
             }
         }
+        .carousel-control-next, .carousel-control-prev {
+            background: $primary-3;
+            opacity: 1;
+            border-radius: 100%;
+            height: 30px;
+            width: 30px !important;
+            z-index: 5;
+            top: calc(100% - 30px);
+        }
         .carousel-control-next-icon, .carousel-control-prev-icon{
             filter: invert(1);
+            height: 20px;
+            width: 20px;
         }
     }
 }
@@ -346,48 +400,65 @@ header {
 // footer css start //
 
 .footer-copyright {
-    background-color: #121212;
-    color: #fff;
+    background-color: $primary-1;
+    color: $primary-3;
     padding: 15px 30px;
     text-align: center;
-}
-
-.footer-copyright-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-}
-
-.footer-copyright-text {
-  color: #fff;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-bottom: 0;
-    margin-top: 0;
+    .footer-copyright-text {
+        color: $primary-3;
+        font-size: $font-size-extra-small;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-regular;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
 }
 // footer css end //
 
 // responsive css start //
-@media (max-width: xxl) { 
-    
-}
-@media (max-width: xl)  {
-    .carousel-caption {
-        top:25%;
-    }
-}
-@media (max-width: lg)  {
-    .carousel-caption {
-        top: 20%;
-        h2 {
-            font-size: $font-size-h3 !important;
+@media (max-width: $lg) {
+    .textContentBox{
+        .imagebox{
+            height: 90%;
+            width: 90%;      
+            &.first{
+                box-shadow: -20px -20px $primary-7;
+            }
+            &.second{           
+                box-shadow: 20px -20px $primary-7;
+            }
         }
     }
 }
-@media (max-width: md)  {
+@media (max-width: $md) {
+    .navbar-collapse.show{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        padding: 30px;
+        margin: 0px;
+        background: $primary-9;
+        width: 100%;
+        height: 100%;
+    }
+    .order1 {
+        order: 1;
+    }
+    .order2 {
+        order: 2;
+    }
+    .textContentBox{
+        .imagebox{
+            height: 100%;
+            width: 100%;
+        }
+        .textBoxes{
+            margin: 30px 0;
+            height: auto;
+        }
+    }
     .gallery-wrapper {
-        grid-template-columns: repeat(2, 2fr);
+        grid-template-columns: repeat(3, 2fr);
         grid-template-rows: 1fr;
         grid-gap: 2;
         grid-auto-flow: dense;
@@ -407,67 +478,77 @@ header {
     .w-3,
     .w-4,
     .w-5 {
-        grid-column: span 1;
+        grid-column: span 2 !important;
     }
     .h-1,
     .h-2,
     .h-3,
     .h-4,
     .h-5 {
-        grid-row: span 1;
+        grid-row: span 2 !important;
     }
-    main {
-        width: 500px;
-    }
-    .testimonialsSliderBox {
-        .slide-row {
-            width: 2000px;
-            .slide-col {
-                width: 500px;
-                height: 250px;
-                .hero{
-                    img {
-                        width: 200px;
-                    }
+    #testimonialsSliderBox {
+        .carouselBox {
+            width: 550px !important;
+            height: 350px !important;
+            .testimonialsImage{
+                img {
+                    width: 220px !important;
                 }
-                .content {
-                    width: 320px;
-                    height: 200px;
-                    padding: 20px;
-                }
+            }
+            .testimonialsContent {
+                width: 400px !important;
+                padding: 20px !important;
             }
         }
     }
 }
-@media (max-width: sm)  {
-    .gallery-wrapper {
-        display: flex;
-        flex-direction: column;
-        flex: wrap;
-        gap: 2.5rem;
-        margin: 5rem;
+@media (max-width: $sm) {
+    section {
+        padding: 30px 0;
     }
-    main {
-        width: 300px;
-    }
-    .testimonialsSliderBox {
-        .slide-row {
-            width: 1200px;
-            .slide-col {
-                width: 500px;
-                height: 300px;
-                .hero {
-                    top: 60%;
-                    height: 100px;
-                    z-index: 5;
+    #home{
+        .carousel{
+            .carousel-inner{
+                .carousel-item {
+                    height: 400px;
                     img {
-                        width: 100px;
+                        height: 100%;
+                    }
+                    .carousel-caption{
+                        top: 33%;
+                        left: 7%;
+                        right: 7%;
                     }
                 }
-                .content {
-                    width: 300px;
+            }
+        }
+    }
+    .carousel-caption {
+        p{
+            font-size: 16px !important;
+        }
+    } 
+    .gallery-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #testimonialsSliderBox {
+        .carouselBox {
+            width: 100% !important;
+            .testimonialsImage {
+                top: 70% !important;
+                height: 100px !important;
+                z-index: 5;
+                img {
+                    width: 100% !important;
                 }
             }
+            .testimonialsContent {
+                width: 100% !important;
+            }
+        }
+        .carousel-control-next, .carousel-control-prev {
+            bottom: 0 !important;
         }
     }
 }

@@ -9,6 +9,7 @@ $font-family-bold:            "Poppins", sans-serif;  //700
 $font-family-extrabold:       "Poppins", sans-serif;  //800
 $font-family-black:           "Poppins", sans-serif;  //900
 
+// font-weight
 $font-weight-thin:            100;
 $font-weight-extralight:      200;
 $font-weight-light:           300;
@@ -25,12 +26,6 @@ $font-size-small:             14px;
 $font-size-regular:           16px;
 $font-size-medium:            18px;
 $font-size-large:             20px;
-$font-size-h6:                22px;
-$font-size-h5:                24px;
-$font-size-h4:                26px;
-$font-size-h3:                30px;
-$font-size-h2:                36px;
-$font-size-h1:                44px;
 
 $font-family-regular:         $font-family-regular;
 $font-size-regular:           $font-size-regular;
@@ -44,19 +39,8 @@ $link-hover-color:            $primary-2;
 $link-hover-decoration:       underline;
 
 // breakpoints
-$grid-breakpoints: (
-  xs: 0,
-  sm: 575px,
-  md: 767px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
-
-$container-max-widths: (
-  xs: 100%,
-  sm: 768px,
-  md: 992px,
-  lg: 1200px,
-  xxl: 1400px
-);
+$xs: 575px;
+$sm: 767px;
+$md: 991px;
+$lg: 1200px;
+$xl: 1400px;
