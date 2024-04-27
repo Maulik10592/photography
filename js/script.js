@@ -16,6 +16,12 @@ jQuery(document).ready(function(){
      });  
     // header js end //
 
+    // animation js start //
+    AOS.init({
+        duration: 1200,
+    });
+    // animation js end //
+
     // gallery js start //
     $('.galleryCarousel').slick({
         slidesToShow: 5,
@@ -60,6 +66,12 @@ jQuery(document).ready(function(){
         ]
     });
     // gallery js end //
+
+    // testimonials js start //
+    $('#testimonialsSliderBox').carousel({
+        interval: 3000,
+    });
+    // testimonials js end //
 });
 
 // work js start //

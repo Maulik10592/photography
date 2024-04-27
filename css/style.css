@@ -137,6 +137,17 @@ header .navbar .collapsing {
   z-index: 3;
   margin: 0;
   padding: 0;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+@keyframes show {
+  0% {
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 #home .carousel .carousel-inner .carousel-item .carousel-caption h2 {
   margin-bottom: 15px;
