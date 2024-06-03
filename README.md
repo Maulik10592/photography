@@ -21,3 +21,5 @@ This section can be used to Testimonial about the photographer by showing a simp
 * Image slider - Slick Slider 
 * Glightbox - Glightbox popup slider
 * Animation  - AOS
+
+Created by <a href="maulik-vaghela.vercel.app" target="_blank">Maulik</a>
